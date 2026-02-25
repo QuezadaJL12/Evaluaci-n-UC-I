@@ -13,22 +13,18 @@ import java.util.Date;
 public class Inscripcion {
     private String id;
     private Date fechaRegistro;
+    private Alumno alumno;
+    private Taller taller;
 
-    public Inscripcion() {}
-
-    public Inscripcion(String id, Date fechaRegistro) {
+    public Inscripcion(String id, Date fechaRegistro, Alumno alumno, Taller taller) {
         this.id = id;
         this.fechaRegistro = fechaRegistro;
+        this.alumno = alumno;
+        this.taller = taller;
     }
 
     public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
     public Date getFechaRegistro() { return fechaRegistro; }
-    public void setFechaRegistro(Date fechaRegistro) { this.fechaRegistro = fechaRegistro; }
-
-    @Override
-    public String toString() {
-        return "Inscripcion{id='" + id + "', fechaRegistro=" + fechaRegistro + "}";
-    }
+    public Alumno getAlumno() { return alumno; }
+    public Taller getTaller() { return taller; }
 }

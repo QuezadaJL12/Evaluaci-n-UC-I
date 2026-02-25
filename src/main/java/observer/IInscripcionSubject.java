@@ -9,5 +9,6 @@ package observer;
  * @author Chino
  */
 public interface IInscripcionSubject {
-    
+    void addObserver(IInscripcionObserver obs);
+    void removeObserver(IInscripcionObserver obs);
 }

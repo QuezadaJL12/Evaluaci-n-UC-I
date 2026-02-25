@@ -4,10 +4,12 @@
  */
 package observer;
 
+import model.Ticket;
+
 /**
  *
  * @author Chino
  */
 public interface IInscripcionObserver {
-    
+    void update(Ticket ticket);
 }

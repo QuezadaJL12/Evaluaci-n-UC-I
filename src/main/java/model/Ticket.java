@@ -5,6 +5,7 @@
 package model;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
@@ -14,26 +15,21 @@ public class Ticket {
     private String folio;
     private String status;
     private Date fechaEmision;
+    private Inscripcion inscripcion;
 
-    public Ticket() {}
+    public Ticket(Inscripcion inscripcion) {
+        this.inscripcion = inscripcion;
+        this.status = "INSCRITO";
+        this.fechaEmision = new Date();
+        generarFolio();
+    }
 
-    public Ticket(String folio, String status, Date fechaEmision) {
-        this.folio = folio;
-        this.status = status;
-        this.fechaEmision = fechaEmision;
+    public void generarFolio() {
+        this.folio = UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
 
     public String getFolio() { return folio; }
-    public void setFolio(String folio) { this.folio = folio; }
-
     public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-
     public Date getFechaEmision() { return fechaEmision; }
-    public void setFechaEmision(Date fechaEmision) { this.fechaEmision = fechaEmision; }
-
-    @Override
-    public String toString() {
-        return "Ticket{folio='" + folio + "', status='" + status + "', fechaEmision=" + fechaEmision + "}";
-    }
+    public Inscripcion getInscripcion() { return inscripcion; }
 }

@@ -4,10 +4,24 @@
  */
 package observer;
 
+
+import model.Ticket;
+import view.InscripcionView;
+
 /**
  *
  * @author Chino
  */
-public class ObserverInscripcion {
-    
+public class ObserverInscripcion implements IInscripcionObserver {
+    private final InscripcionView view;
+
+    public ObserverInscripcion(InscripcionView view) {
+        this.view = view;
+    }
+
+    @Override
+    public void update(Ticket ticket) {
+     
+        javax.swing.SwingUtilities.invokeLater(() -> view.mostrarTicket(ticket));
+    }
 }

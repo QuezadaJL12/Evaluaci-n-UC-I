@@ -19,10 +19,7 @@ public class Taller {
     private int cupoMax;
     private int cupoActual;
 
-    public Taller() {}
-
-    public Taller(String id, String nombreCompleto, String instructor, Date fecha,
-                  String horario, int cupoMax, int cupoActual) {
+    public Taller(String id, String nombreCompleto, String instructor, Date fecha, String horario, int cupoMax, int cupoActual) {
         this.id = id;
         this.nombreCompleto = nombreCompleto;
         this.instructor = instructor;
@@ -32,40 +29,25 @@ public class Taller {
         this.cupoActual = cupoActual;
     }
 
+    public String getId() { return id; }
+    public String getNombreCompleto() { return nombreCompleto; }
+    public String getInstructor() { return instructor; }
+    public Date getFecha() { return fecha; }
+    public String getHorario() { return horario; }
+    public int getCupoMax() { return cupoMax; }
+    public int getCupoActual() { return cupoActual; }
+
     public boolean tieneCupo() {
         return cupoActual < cupoMax;
-        
     }
-      public void incrementarCupo() {
-        if (!tieneCupo()) {
-            throw new IllegalStateException("No hay cupo disponible para este taller.");
-        }
+
+    public void ocuparLugar() {
+        if (!tieneCupo()) throw new IllegalStateException("Taller sin cupo");
         cupoActual++;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
-    public String getNombreCompleto() { return nombreCompleto; }
-    public void setNombreCompleto(String nombreCompleto) { this.nombreCompleto = nombreCompleto; }
-
-    public String getInstructor() { return instructor; }
-    public void setInstructor(String instructor) { this.instructor = instructor; }
-
-    public Date getFecha() { return fecha; }
-    public void setFecha(Date fecha) { this.fecha = fecha; }
-
-    public String getHorario() { return horario; }
-    public void setHorario(String horario) { this.horario = horario; }
-
-    public int getCupoMax() { return cupoMax; }
-    public void setCupoMax(int cupoMax) { this.cupoMax = cupoMax; }
-
-    public int getCupoActual() { return cupoActual; }
-    public void setCupoActual(int cupoActual) { this.cupoActual = cupoActual; }
-
     @Override
     public String toString() {
-        return nombreCompleto + " [" + cupoActual + "/" + cupoMax + "]";
+        return id + " - " + nombreCompleto;
     }
 }

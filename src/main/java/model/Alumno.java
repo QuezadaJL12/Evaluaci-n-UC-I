@@ -12,31 +12,22 @@ public class Alumno {
     private String id;
     private String nombre;
     private int semestre;
-    private String carrera;
+    private String programa;
 
-    public Alumno() {}
-
-    public Alumno(String id, String nombre, int semestre, String carrera) {
+    public Alumno(String id, String nombre, int semestre, String programa) {
         this.id = id;
         this.nombre = nombre;
         this.semestre = semestre;
-        this.carrera = carrera;
+        this.programa = programa;
     }
 
     public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
     public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-
     public int getSemestre() { return semestre; }
-    public void setSemestre(int semestre) { this.semestre = semestre; }
-
-    public String getCarrera() { return carrera; }
-    public void setCarrera(String carrera) { this.carrera = carrera; }
+    public String getPrograma() { return programa; }
 
     @Override
     public String toString() {
-        return nombre + " (" + id + ")";
+        return id + " - " + nombre;
     }
 }
